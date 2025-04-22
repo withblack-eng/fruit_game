@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>水果消消乐</title>
+    <style>
+        /* 样式保持不变 */
+    </style>
+</head>
+<body>
+    <button id="startButton">开始游戏</button>
+    <canvas id="startScreen" width="800" height="600"></canvas>
+    <canvas id="gameCanvas" width="800" height="600"></canvas>
+    <div id="scoreDisplay"></div>
+    <div id="livesDisplay"></div>
+    <div id="music"><audio src="bgm.mp3" controls loop></audio></div>
+    
+    <script src="script.js"></script>
+    <script>
+      // 新增音频交互代码
+      document.getElementById('startButton').addEventListener('click', function() {
+        const audio = document.querySelector('audio');
+        audio.play().catch(() => {
+          alert('点击页面任意处开始播放音乐！');
+          document.body.addEventListener('click', () => audio.play());
+        });
+      });
+    </script>
+</body>
+</html>
